@@ -1,0 +1,317 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/player/Player.cs" type="Script" id=1]
+[ext_resource path="res://anim/player/idle.tres" type="Animation" id=2]
+[ext_resource path="res://anim/player/skill_normal_attack.tres" type="Animation" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+
+radius = 1.0
+height = 1.0
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "normal_attack_blocked"
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/Skeleton/arm_left:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, -78.6692 ), Vector3( -40, 90, -90 ), Vector3( -64.442, 127.694, -111.614 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/Skeleton/arm_left:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.00124821, 1.29998, -1.00113 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/Skeleton/arm_left/bone_arm_ant:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 50, 0 ), Vector3( -4.98897e-07, 10.1252, -5.32013e-07 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/Skeleton/arm_left/bone_arm_ant:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 1.15 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mesh/Skeleton/arm_left/bone_arm_ant/bone_hand:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 33.5039, -104.795, -84.2346 ) ]
+}
+
+[sub_resource type="CapsuleMesh" id=3]
+
+radius = 1.0
+mid_height = 1.0
+radial_segments = 64
+rings = 8
+
+[sub_resource type="SpatialMaterial" id=7]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "Parameters" ]
+
+[sub_resource type="CubeMesh" id=5]
+
+size = Vector3( 0.3, 0.3, 0.9 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[sub_resource type="CubeMesh" id=6]
+
+size = Vector3( 0.3, 0.3, 0.9 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[node name="Player" type="KinematicBody" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76837e-07, -7.15256e-07, 4.76837e-07 )
+visible = false
+shape = SubResource( 1 )
+disabled = false
+
+[node name="Camera" type="Camera" parent="." index="1"]
+transform = Transform( -0.661357, 0.502717, -0.55667, 0.75, 0.433013, -0.5, -0.0103134, -0.748181, -0.663414, -10, -10, -10 )
+keep_aspect = 0
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="anim" type="AnimationPlayer" parent="." index="2"]
+root_node = NodePath("..")
+autoplay = "idle"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = ExtResource( 2 )
+anims/normal_attack_blocked = SubResource( 2 )
+anims/skill_normal_attack = ExtResource( 3 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="Mesh" type="Spatial" parent="." index="3"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Mesh" index="0"]
+transform = Transform( 0.846033, 0.533131, -2.33039e-08, -0.533131, 0.846033, 6.73013e-09, 2.33039e-08, 6.73013e-09, 1, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 3 )
+skeleton = NodePath("..")
+material/0 = SubResource( 7 )
+_sections_unfolded = [ "material" ]
+
+[node name="Skeleton" type="Skeleton" parent="Mesh" index="1"]
+editor/display_folded = true
+
+[node name="arm_left" type="BoneAttachment" parent="Mesh/Skeleton" index="0"]
+editor/display_folded = true
+transform = Transform( 0.888895, -0.30549, 0.341382, -0.401088, -0.158918, 0.902149, -0.221346, -0.938839, -0.26379, -0.00124821, 1.29998, -1.00113 )
+bone_name = ""
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Mesh/Skeleton/arm_left" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, -1.63544e-07, 0, 1.63544e-07, 1, 0, 0, 0.5 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="bone_arm_ant" type="BoneAttachment" parent="Mesh/Skeleton/arm_left" index="1"]
+transform = Transform( 0.984426, 7.61001e-09, 0.175799, -9.28538e-09, 1, 8.7074e-09, -0.175799, -1.02041e-08, 0.984427, 0, 0, 1.15 )
+bone_name = ""
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Mesh/Skeleton/arm_left/bone_arm_ant" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, -6.83019e-08, 0, 6.83019e-08, 1, 0, 0, 0.464521 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 6 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="bone_hand" type="BoneAttachment" parent="Mesh/Skeleton/arm_left/bone_arm_ant" index="1"]
+transform = Transform( 0.505341, -0.307684, -0.806201, -0.829631, 0.0837642, -0.551994, 0.237371, 0.947794, -0.212934, 2.38419e-07, 1.78814e-07, 0.735258 )
+bone_name = "0"
+_sections_unfolded = [ "Transform" ]
+
+[node name="arm_right" type="BoneAttachment" parent="Mesh/Skeleton" index="1"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3, -1 )
+bone_name = ""
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Mesh/Skeleton/arm_right" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, -1.63544e-07, 0, 1.63544e-07, 1, 0, 0, 0.5 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="bone_arm_ant" type="BoneAttachment" parent="Mesh/Skeleton/arm_right" index="1"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.04177 )
+bone_name = ""
+
+[node name="MeshInstance" type="MeshInstance" parent="Mesh/Skeleton/arm_right/bone_arm_ant" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, -6.83019e-08, 0, 6.83019e-08, 1, 0, 0, 0.464521 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 6 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="bone_hand" type="BoneAttachment" parent="Mesh/Skeleton/arm_right/bone_arm_ant" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.735257 )
+bone_name = ""
+
